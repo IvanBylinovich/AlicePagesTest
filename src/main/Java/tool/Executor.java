@@ -2,7 +2,7 @@ package tool;
 
 public class Executor {
 
-    public String toFormat(String pagesList){
+    public static String toFormat(String pagesList){
         return null;
     }
 

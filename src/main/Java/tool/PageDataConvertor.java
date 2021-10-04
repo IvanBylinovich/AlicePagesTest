@@ -1,27 +1,34 @@
 package tool;
 
+import exception.NegativePageNumberException;
+
 import java.util.List;
 
 public class PageDataConvertor {
 
-    //преобразует строку номеров страниц в список целых чисел
-    public List<Integer> parsToIntList(String pagesList){
+    //преобразование строки с номерами страниц в строкового списка номеров страниц
+    public List<String> parsToStringList(String pagesString){
+        return null;
+    }
+
+    //преобразует строкового списка номеров страниц в список целых чисел
+    public List<Integer> parsToIntList(List<String> pagesList) throws NumberFormatException{
         return null;
     }
 
     //проверяет список целых чисел на положительное значение(страницы не могут быть меньше 1)
-    public void positiveValueValidator(List<Integer> pages){
+    public void positiveValueValidator(List<Integer> pages) throws NegativePageNumberException {
 
     }
 
     //сортирует номера страниц по возрастанию
-    public void sortPages(List<Integer> pages){
-
+    public List<Integer> sortPages(List<Integer> pages){
+        return null;
     }
 
     //убирает дубликаты номеров страниц
-    public void removingDuplicates(List<Integer> pages){
-
+    public List<Integer> removingDuplicates(List<Integer> pages){
+        return null;
     }
 
     //преобразование отсортерованного списка номеров страниц в строку, сокращенного формата
