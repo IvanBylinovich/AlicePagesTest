@@ -1,14 +1,31 @@
 package controller;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
+import exception.NegativePageNumberException;
+import tool.Executor;
 
-@Path("/pages")
-public class PageController {
+import javax.ws.rs.*;
+
+@Path("/reducedPageNumbers")
+
+public class PageController  {
+    Executor reducer = new Executor();
 
     @GET
-    public void doGet(){
+    @Produces("application/json")
+    @Consumes("text/plain")
+    public String doGet(@QueryParam("rawPageNumbers") String rawPageNumbers){
+        String reducedPageNumbersList = "";
+
+        try {
+            reducedPageNumbersList = reducer.toFormat(rawPageNumbers);
+        } catch (NegativePageNumberException e) {
+            return  e.getMessage();
+        }catch (NumberFormatException e) {
+            return e.getMessage();
+        }
+
+        return "{\"original\":" + "\""+ rawPageNumbers + "\", \"reduced\": \"" + reducedPageNumbersList+ "\"}";
+
 
     }
 
